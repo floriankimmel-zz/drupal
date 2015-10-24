@@ -15,15 +15,10 @@ before_script:
  - phpenv rehash
  - mkdir private
  - mkdir tmp
- - drush make drushmake/drupalmatic.make drupal
- - cp -r drushmake/drupalmatic drupal/profiles
  - cd drupal
  - drush si drupalmatic --db-url=mysql://root:@localhost/drupal --yes install_configure_form.update_status_module='array(FALSE,FALSE)'
- - drush en --yes simpletest
  - drush cc all
  - drush runserver --server=builtin 8080 &
- - sleep 4
- - drush vset --yes simpletest_verbose FALSE
  - cd ..
  - composer --no-progress install
 

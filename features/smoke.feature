@@ -4,9 +4,9 @@ Feature: Some simple smoke tests to see if environment is working just fine
     When I go to the homepage
     Then the response status code should be 200
   Scenario: Login as admin
-    When i go to the homepage
-    And I fill in "edit-name" with "admin"
+    When I go to the homepage
+    And I fill in "edit-name" with "versicherung"
     And I fill in "edit-pass" with "shMdQmrdWE"
-    And I click "edit-submit"
+    And I press the "edit-submit" button
     Then I should see the link "Log out"
     

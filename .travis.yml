@@ -8,6 +8,7 @@ mysql:
   encoding: utf8
 
 before_script:
+ - composer self-update
  - mysql -e 'create database drupal;'
  - pyrus channel-discover pear.drush.org
  - pyrus install drush/drush
@@ -27,11 +28,4 @@ before_script:
  - composer --no-progress install
 
 script:
-# Start with behavioral tests.
   - bin/behat -c travis.behat.yml
-# Now for Drupal SimpleTest.
-#  - cd drupal
-# Set up to run the PHP test group under SimpleTest, since it's quick.
-# Change this line to include all the test groups you want to run.
-#  drush test-run SomeGroup,AnotherGroup --uri=http://localhost:8080/
-#  - sudo -u apache drush test-run PHP --uri=http://localhost:8080/

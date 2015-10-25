@@ -2,8 +2,8 @@
 
 function drupaltestbot_profile_details() {
   return array(
-    'name' => 'DrupalMatic',
-    'description' => 'Automating deployments since 2013'
+    'name' => 'custom',
+    'description' => 'Automating deployments'
   );
 }
 

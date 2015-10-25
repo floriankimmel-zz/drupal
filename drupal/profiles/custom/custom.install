@@ -8,7 +8,7 @@
  * since that's what we really want, with a few variables
  * set for file directories.
  */
-function drupalmatic_install() {
+function custom_install() {
   include_once DRUPAL_ROOT . '/profiles/standard/standard.install';
   standard_install();
   // We're going to force the file systems to live in these directories:

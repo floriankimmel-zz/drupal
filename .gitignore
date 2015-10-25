@@ -1,3 +1,5 @@
+drupal/sites/default/settings.php
+config/application.properties
 !drupalfiles/
 bin/
 vendor/

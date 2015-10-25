@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function site_deployment_install() {
+  for ($i = 7000; $i < 8000; $i++) {
+    $candidate = 'site_deployment_update_' . $i;
+    if (function_exists($candidate)) {
+      $candidate();
+    }
+  }
+}
+
+/**
+ * Deployment function for 1st deployment
+ */
+function site_deployment_update_7000() {
+
+  // Theme Settings
+  theme_enable(array('seven'));
+  variable_set('theme_default', 'seven');
+}
+
+?>

@@ -1,5 +1,5 @@
-name = DrupalMatic
-description = A testable Drupal dev environment.
+name = Custom
+description = a custom defined profile
 core = 7.x
 dependencies[] = block
 dependencies[] = color

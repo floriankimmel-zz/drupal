@@ -8,5 +8,5 @@ Feature: Some simple smoke tests to see if environment is working just fine
     And I fill in "edit-name" with "versicherung"
     And I fill in "edit-pass" with "shMdQmrdWE"
     And I press the "edit-submit" button
-    Then I should see the link "Log out"
+    Then I should not see the text "User login"
     

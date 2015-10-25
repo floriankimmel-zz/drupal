@@ -66,6 +66,9 @@ then
     drush cc all
     drush cron
     drush vset maintenance_mode 0    
+elif [ "$1" = "runtest" ] 
+then     
+    ./bin/behat -c local.behat.yml
 else    
     echo "sh ./installer.sh install | update"
 fi    

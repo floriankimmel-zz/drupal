@@ -3,7 +3,8 @@
 use Behat\Behat\Context\ClosuredContextInterface,
     Behat\Behat\Context\TranslatedContextInterface,
     Behat\Behat\Context\BehatContext,
-    Behat\Behat\Exception\PendingException;
+    Behat\Behat\Exception\PendingException,
+    Behat\Mink\Exception\ExpectationException;
 use Behat\Gherkin\Node\PyStringNode,
     Behat\Gherkin\Node\TableNode;
 
@@ -43,4 +44,16 @@ class FeatureContext extends Drupal\DrupalExtension\Context\DrupalContext
 //        doSomethingWith($argument);
 //    }
 //
+    
+     /**
+       * @Then /^I should see title "([^"]*)"$/
+       */
+    public function assertTitle($title) {
+        $actual = preg_match('/<title[^>]*>(.*?)<\/title>/ims', $this->getSession()->getPage()->getContent(), $matches) ? $matches[1] : null;
+        if ($actual != $title) {
+            $message = sprintf('Current page title is "%s", but should  be "%s"', $actual, $title);
+            throw new ExpectationException($message, $this->getSession());
+        }
+    }
+    
 }

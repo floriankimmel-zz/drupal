@@ -38,6 +38,10 @@ then
       fi    
       drush upwd --password="admin" "admin"
       drush en site_deployment -y
+      drush --nocolor --yes cc all
+      drush --nocolor --yes features-revert-all
+      drush --nocolor --yes cc all
+      drush --nocolor --yes features-revert-all
     else
       echo "Already installed."
     fi
@@ -63,7 +67,10 @@ then
     git pull
     cd drupal
     drush updb -y
-    drush cc all
+    drush --nocolor --yes cc all
+    drush --nocolor --yes features-revert-all
+    drush --nocolor --yes cc all
+    drush --nocolor --yes features-revert-all
     drush cron
     drush vset maintenance_mode 0    
 elif [ "$1" = "runtest" ] 

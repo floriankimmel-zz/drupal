@@ -7,8 +7,10 @@ mysql:
   username: root
   encoding: utf8
 
+before_install:
+  - php /home/travis/.phpenv/versions/5.4/bin/composer self-update
+  
 before_script:
- - composer self-update
  - mysql -e 'create database drupal;'
  - pyrus channel-discover pear.drush.org
  - pyrus install drush/drush

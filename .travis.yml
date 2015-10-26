@@ -17,8 +17,11 @@ before_script:
  - mkdir tmp
  - cd drupal
  - drush si custom --db-url=mysql://root:@localhost/drupal --yes install_configure_form.update_status_module='array(FALSE,FALSE)'
+ - drush en features -y
+ - drush en strongarm -y
  - drush en site_deployment -y
  - drush cc all
+ - drush updb -y
  - drush runserver --server=builtin 8080 &
  - cd ..
  - composer --no-progress install
